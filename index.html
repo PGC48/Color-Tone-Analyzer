@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Tone Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Color Tone Analyzer</h1>
+        <p>สำหรับช่วย Funart ที่คุณชอบ</p>
+        <label class="switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider"></span>
+        </label>
+
+        <div class="upload-section">
+            <label for="imageUpload" class="upload-btn">
+                <span class="btn-text">เลือกไฟล์รูปภาพ</span>
+            </label>
+            <input type="file" id="imageUpload" accept="image/*">
+            <button id="analyzeBtn" disabled>วิเคราะห์สี</button>
+        </div>
+
+        <div class="analysis-container">
+            <div class="image-section">
+                <img id="preview" class="preview" src="#" alt="Preview" style="display: none;">
+            </div>
+            <div id="result" class="result" style="display: none;">
+                <div id="colorInfo"></div>
+                <canvas id="colorPieChart"></canvas>
+            </div>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            กำลังประมวลผล...
+            <div id="loadingBar" class="loading-bar"></div>
+        </div>
+
+        <div class="footer">
+            Color Analyzer By Munchit © 2024
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+:root {
+    --bg-color: #f0f4f8;
+    --text-color: #333;
+    --container-bg: #ffffff;
+    --container-shadow: rgba(0, 0, 0, 0.1);
+    --heading-color: #2c3e50;
+    --btn-bg: #3498db;
+    --btn-color: white;
+    --btn-hover-bg: #2980b9;
+    --analyze-btn-bg: #2ecc71;
+    --analyze-btn-hover-bg: #27ae60;
+    --disabled-btn-bg: #95a5a6;
+    --result-bg: #ecf0f1;
+    --result-color: #2c3e50;
+    --footer-color: #7f8c8d;
+}
+
+body.dark-theme {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --container-bg: #2c2c2c;
+    --container-shadow: rgba(0, 0, 0, 0.3);
+    --heading-color: #e0e0e0;
+    --btn-bg: #2980b9;
+    --btn-color: #e0e0e0;
+    --btn-hover-bg: #3498db;
+    --analyze-btn-bg: #27ae60;
+    --analyze-btn-hover-bg: #2ecc71;
+    --disabled-btn-bg: #4a4a4a;
+    --result-bg: #3a3a3a;
+    --result-color: #e0e0e0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    background-color: var(--container-bg);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--container-shadow);
+    padding: 40px;
+    text-align: center;
+    max-width: 800px;
+    width: 90%;
+    position: relative;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+h1 {
+    color: var(--heading-color);
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    transition: color 0.3s;
+}
+
+.switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.upload-section {
+    display: flex;
+    justify-content: center; /* Center the upload button */
+    margin: 20px 0;
+}
+
+.upload-btn {
+    background-color: var(--btn-bg);
+    color: var(--btn-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.upload-btn:hover {
+    background-color: var(--btn-hover-bg);
+}
+
+#imageUpload {
+    display: none;
+}
+
+button {
+    background-color: var(--analyze-btn-bg);
+    color: var(--btn-color);
+    padding: 12px 20px; /* Adjust padding */
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-left: 10px; /* Space between buttons */
+}
+
+button:hover {
+    background-color: var(--analyze-btn-hover-bg);
+}
+
+button:disabled {
+    background-color: var(--disabled-btn-bg);
+    cursor: not-allowed;
+}
+
+.analysis-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    margin-top: 20px; /* Add space above */
+}
+
+.image-section {
+    width: 50%; /* Adjust width as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the image */
+}
+
+.preview {
+    max-width: 100%; /* ให้ความกว้างสูงสุดเป็น 100% ของ container */
+    height: auto; /* ให้ความสูงปรับตามอัตราส่วน */
+    border-radius: 10px; /* เพิ่มมุมโค้ง */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้กับรูปภาพ */
+    margin-bottom: 20px; /* เพิ่ม margin ด้านล่าง */
+}
+
+.result {
+    flex: 0 0 50%; /* Adjust width for result */
+    background-color: var(--result-bg);
+    color: var(--result-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex; /* Add flex display */
+    flex-direction: column; /* Stack the contents */
+    align-items: flex-start; /* Align items to the start */
+    margin-left: 20px; /* Add some margin to the left */
+}
+
+#colorInfo {
+    margin-right: 20px; /* Add margin to the right */
+    text-align: left; /* Ensure text is aligned to the left */
+    flex: 1; /* Allow it to take available space */
+}
+
+#colorPieChart {
+    width: 200px; /* Set a fixed width */
+    height: 200px; /* Set a fixed height */
+    margin: 0 auto; /* Center the pie chart */
+    flex-shrink: 0;
+}
+
+.loading {
+    margin-top: 20px;
+}
+
+.loading-bar {
+    width: 0;
+    height: 5px;
+    background-color: var(--btn-bg);
+    margin-top: 10px;
+    border-radius: 5px;
+    transition: width 0.5s;
+}
+
+.footer {
+    margin-top: 40px;
+    color: var(--footer-color);
+    font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+    .analysis-container {
+        flex-direction: column; /* Stack vertically on small screens */
+    }
+
+    .image-section, .result {
+        flex: 0 0 100%;
+    }
+
+    .result {
+        margin-top: 20px; /* Add space between result and image */
+        align-items: center; /* Center content */
+    }
+}
